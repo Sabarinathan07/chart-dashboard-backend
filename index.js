@@ -18,6 +18,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "https://dashboard--backend.herokuapp.com/",
+      "https://s--dashboard.herokuapp.com/",
     //   "http://localhost:5000/customer/"
       // "https://mern-auth-template-tutorial.netlify.app",
     ],
