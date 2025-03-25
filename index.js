@@ -27,19 +27,18 @@ app.use(
   })
 );
 
-// connect to mongoDB
-
-mongoose.connect(
-  process.env.MDB_CONNECT,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) return console.error(err);
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MDB_CONNECT);
     console.log("Connected to MongoDB");
+  } catch (err) {
+    console.error(`Error connecting to MongoDB: ${err.message}`);
+    process.exit(1); // Exit the process with failure
   }
-);
+};
+
+connectDB();
 
 // set up routes
 
